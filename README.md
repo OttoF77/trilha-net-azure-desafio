@@ -58,11 +58,80 @@ Esse é o schema (model) de Funcionario, utilizado para passar para os métodos 
 }
 ```
 
-## Ambiente
-Este é um diagrama do ambiente que deverá ser montado no Microsoft Azure, utilizando o App Service para a API, SQL Database para o banco relacional e Azure Table para armazenar os logs.
+---
 
-![Diagrama da classe Funcionario](Imagens/diagrama_api.png)
+## 🚩 RESOLUÇÃO DO DESAFIO — ETAPA FINAL (TESTES EVIDENCIADOS)
 
+> **Atenção:** Esta seção foi gerada após a execução e validação completa do desafio. Aqui você encontra o passo a passo final, com prints reais dos testes dos endpoints, para facilitar a conferência e o entendimento de qualquer pessoa que acessar este repositório.
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima, incluindo a sua publicação na nuvem.
+### 1. Tela inicial do Swagger da aplicação
+
+![Tela inicial do Swagger](Imagens/TMA01.png)
+
+---
+
+### 2. Teste de criação de funcionário (POST /Funcionario)
+
+- Requisição enviada:
+```json
+{
+  "nome": "Joao Silva",
+  "endereco": "Rua A, 123",
+  "ramal": "101",
+  "emailProfissional": "joao@empresa.com",
+  "departamento": "TI",
+  "salario": 3500.50,
+  "dataAdmissao": "2022-06-23T02:58:36.345Z"
+}
+```
+- Resposta esperada: **201 Created**
+- Print do resultado:
+
+![Resultado POST](Imagens/TMA02.png)
+
+---
+
+### 3. Teste de consulta de funcionário (GET /Funcionario/{id})
+
+- Exemplo de consulta: `/Funcionario/3`
+- Resposta esperada: **200 OK** com o JSON do funcionário
+- Print do resultado:
+
+![Resultado GET](Imagens/TMA03.png)
+
+---
+
+### 4. Teste de atualização de funcionário (PUT /Funcionario/{id})
+
+- Requisição enviada:
+```json
+{
+  "nome": "Joao Silva Jr",
+  "endereco": "Rua B, 456",
+  "ramal": "102",
+  "emailProfissional": "joao.jr@empresa.com",
+  "departamento": "TI",
+  "salario": 3800.00,
+  "dataAdmissao": "2022-06-23T02:58:36.345Z"
+}
+```
+- Resposta esperada: **200 OK**
+- Print do resultado:
+
+![Resultado PUT](Imagens/TMA04.png)
+
+---
+
+### 5. Teste de remoção de funcionário (DELETE /Funcionario/{id})
+
+- Exemplo de remoção: `/Funcionario/3`
+- Resposta esperada: **204 No Content**
+- Print do resultado:
+
+![Resultado DELETE](Imagens/TMA05.png)
+
+---
+
+**Todos os endpoints foram testados e funcionam conforme esperado, incluindo persistência no SQL Server e logs no Azure Table (emulado via Azurite).**
+
+> **Dica:** Para rodar localmente, siga as instruções de configuração de ambiente e utilize as mesmas rotas e exemplos acima. Se precisar de mais detalhes, consulte o histórico deste README ou abra uma issue.
